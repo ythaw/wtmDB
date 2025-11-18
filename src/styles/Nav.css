@@ -1,0 +1,94 @@
+
+.nav { 
+  background: #0f172a; 
+  color: #e2e8f0; 
+  border-bottom: 1px solid #1f2937; 
+  padding: 1rem;
+}
+
+.nav__inner {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-areas:
+    "brand"
+    "search"
+    "sort";
+}
+
+.nav__brand { grid-area: brand; display: flex; align-items: center; gap: 0.5rem; }
+.nav__logo { height: 2rem; width: auto; object-fit: contain; }
+.nav__title { margin: 0; font-size: 1.25rem; }
+
+.nav__search {
+  grid-area: search;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.nav__search input {
+  min-width: 0;
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: #e2e8f0;
+}
+
+.nav__actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nav__actions button {
+  padding: 0.6rem 0.8rem; 
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #111827;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+.nav__actions button:hover,
+.nav__sort select:hover { filter: brightness(1.05); }
+
+.nav__sort {
+  grid-area: sort;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.nav__sort select {
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: #e2e8f0;
+}
+
+/* Tiny screens: stack actions under input if necessary */
+@media (max-width: 360px) {
+  .nav__search { grid-template-columns: 1fr; }
+  .nav__actions { width: 100%; }
+  .nav__actions button { flex: 1; }
+}
+
+/* Desktop: one row — brand | search group | sort on the far right */
+@media (min-width: 920px) {
+  .nav__inner {
+    grid-template-areas: "brand search sort";
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+}
+
+/* Hide-only utility for screen readers */
+.sr-only {
+  position: absolute !important; width:1px; height:1px; margin:-1px; border:0; padding:0;
+  clip: rect(0 0 0 0); overflow: hidden; white-space: nowrap;
+}

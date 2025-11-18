@@ -1,0 +1,15 @@
+/* src/styles/MovieList.css */
+.movie-list {
+  --cols: 2;                                /* mobile default */
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  padding: 1rem;
+}
+
+/* set --cols per breakpoint */
+@media (min-width: 480px)  { .movie-list { --cols: 3; } }
+@media (min-width: 640px)  { .movie-list { --cols: 4; } }
+@media (min-width: 768px)  { .movie-list { --cols: 5; } }
+@media (min-width: 1024px) { .movie-list { --cols: 6; } } /* requirement: ≥6 */
+@media (min-width: 1280px) { .movie-list { --cols: 7; } }
