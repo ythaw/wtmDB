@@ -6,6 +6,7 @@ import Modal from "./components/Modal.jsx";
 import api from "./api/axios";
 import useDebounce from "./hooks/useDebounce";
 import "./App.css";
+import Footer from "./components/Footer.jsx";
 
 export default function App() {
   // ---------- state ----------
@@ -196,6 +197,7 @@ export default function App() {
           loading={detailsLoading}
           error={detailsError}
         />
+        <Footer />
       </main>
     </>
   );
